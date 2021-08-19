@@ -38,7 +38,6 @@ res=[]
 
 for v in vul:
     v[:] = sorted(v, key=lambda child: (child.tag,child.get('key')))#print(v[0].text)
- 
     if(float(v[0].text)>=7 and v[2].text=='true'):
         reso['CVSS']=v[0].text
         reso['type']=v[3].text
@@ -47,5 +46,6 @@ for v in vul:
         res.append(reso)
     reso={}
 
-print(res)
-    
+filen=open("pyres.json","w");
+filen.write(str(res))
+filen.close();
